@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int peak(int arr[],int s,int e)
+{
+   int mid = s + (e-s)/2;
+   while(s <= e)
+   {
+    if(arr[mid-1] <= arr[mid] && arr[mid] >= arr[mid+1])
+    return mid;
+    else if(arr[mid-1] > arr[mid])
+    e = mid-1;
+    else
+    s = mid + 1;
+    mid = s + (e-s)/2;
+   }
+   return mid;
+}
+int main()
+{
+  int arr[] = {1,4,6,10,5,3};
+  int pi = peak(arr,0,5);
+  cout<<"The peak index of the given Array is "<<pi<<endl;
+  return 0;
+}
