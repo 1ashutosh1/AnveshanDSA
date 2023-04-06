@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int binary_Search(int arr[],int ele)
+{
+   int s = 0,e = 4;
+   int mid = s + (e-s)/2;   //mid index
+   while(s <= e)
+   {
+    if(arr[mid] == ele)
+    return mid;
+    else if(arr[mid] < ele)
+    s = mid+1;
+    else
+    e = mid-1;
+
+    mid = s + (e-s)/2;
+   }
+   return -1;
+}
+int main()
+{
+  int arr[] = {2,3,5,7,9};
+  int ind = binary_Search(arr,11);
+  if(ind != -1)
+  cout<<"Index at which the element is found is "<<ind<<endl;
+  else
+  cout<<"Element is not present in the Array"<<endl;
+  return 0;
+}
